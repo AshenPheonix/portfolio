@@ -1,0 +1,23 @@
+{
+  "name": "brandon-porter-portfolio",
+  "version": ".5.0",
+  "description": "Brandon Porter Portfolio",
+  "main": "index.js",
+  "author": "Brandon Porter",
+  "license": "MIT",
+  "dependencies": {
+    "riot": "^4.0.0-rc.17",
+    "riot-observable": "^3.0.0"
+  },
+  "devDependencies": {
+    "@riotjs/compiler": "^4.2.2",
+    "@riotjs/hot-reload": "^4.0.0-rc.1",
+    "@riotjs/webpack-loader": "^4.0.0",
+    "webpack": "^4.32.1",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.4.1"
+  },
+  "scripts": {
+    "build": "webpack"
+  }
+}

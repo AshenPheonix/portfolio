@@ -6,7 +6,7 @@ class NavComp{
 }
 
 var locations=[
-    new NavComp('Home','index'),
-    new NavComp('About Me', 'about')
-    
+    new NavComp('Home/About Me','index'),
+    new NavComp('Blog','blog'),
+    new NavComp('Projects','projects')
 ]
