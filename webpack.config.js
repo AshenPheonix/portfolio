@@ -17,9 +17,12 @@ module.exports = {
             }
         ]
     },
-    entry: './js/projectInject.js',
+    entry: {
+        project:'./js/projectInject.js',
+        blog:'./js/blogInject.js'
+    },
     output:{
-        filename:'project.js',
+        filename:'[name].js',
         path:path.resolve(__dirname,'views')
     },
     mode:"development"

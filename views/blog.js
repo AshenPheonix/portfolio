@@ -81,20 +81,20 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./js/projectInject.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./js/blogInject.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./js/projectInject.js":
-/*!*****************************!*\
-  !*** ./js/projectInject.js ***!
-  \*****************************/
+/***/ "./js/blogInject.js":
+/*!**************************!*\
+  !*** ./js/blogInject.js ***!
+  \**************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var riot__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! riot */ \"./node_modules/.registry.npmjs.org/riot/4.3.5/node_modules/riot/riot.esm.js\");\n/* harmony import */ var _projectObserver__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./projectObserver */ \"./js/projectObserver.js\");\n/* harmony import */ var _tags_projects_riot__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../tags/projects.riot */ \"./tags/projects.riot\");\n\r\n\r\n\r\n\r\nriot__WEBPACK_IMPORTED_MODULE_0__[\"register\"]('projects',_tags_projects_riot__WEBPACK_IMPORTED_MODULE_2__[\"default\"])\r\n\r\nriot__WEBPACK_IMPORTED_MODULE_0__[\"mount\"]('projects');\n\n//# sourceURL=webpack:///./js/projectInject.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var riot__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! riot */ \"./node_modules/.registry.npmjs.org/riot/4.3.5/node_modules/riot/riot.esm.js\");\n/* harmony import */ var _projectObserver__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./projectObserver */ \"./js/projectObserver.js\");\n/* harmony import */ var _tags_blog_riot__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../tags/blog.riot */ \"./tags/blog.riot\");\n\r\n\r\n\r\n\r\nriot__WEBPACK_IMPORTED_MODULE_0__[\"register\"]('blogs',_tags_blog_riot__WEBPACK_IMPORTED_MODULE_2__[\"default\"])\r\n\r\nriot__WEBPACK_IMPORTED_MODULE_0__[\"mount\"]('blogs');\n\n//# sourceURL=webpack:///./js/blogInject.js?");
 
 /***/ }),
 
@@ -133,15 +133,15 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 /***/ }),
 
-/***/ "./tags/projects.riot":
-/*!****************************!*\
-  !*** ./tags/projects.riot ***!
-  \****************************/
+/***/ "./tags/blog.riot":
+/*!************************!*\
+  !*** ./tags/blog.riot ***!
+  \************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\r\n  'css': null,\r\n  'exports': {},\r\n\r\n  'template': function(template, expressionTypes, bindingTypes, getComponent) {\r\n    return template('<p>\\r\\n        Projects waiting for backend!\\r\\n    </p>', []);\r\n  },\r\n\r\n  'name': 'projects'\r\n});\n\n//# sourceURL=webpack:///./tags/projects.riot?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\r\n  'css': null,\r\n  'exports': null,\r\n\r\n  'template': function(template, expressionTypes, bindingTypes, getComponent) {\r\n    return template('<p>\\r\\n        Blogs waiting for backend.\\r\\n    </p>', []);\r\n  },\r\n\r\n  'name': 'blog'\r\n});\n\n//# sourceURL=webpack:///./tags/blog.riot?");
 
 /***/ })
 
