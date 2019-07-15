@@ -1,4 +1,7 @@
-class Header{
+import {NavComponent} from './NavComponent';
+import locations from './locations'
+
+export default class Header{
     constructor(el){
         this.root=el;
 

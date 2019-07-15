@@ -5,7 +5,7 @@ class NavComp{
     }
 }
 
-var locations=[
+export default [
     new NavComp('Home/About Me','index'),
     new NavComp('Blog','blog'),
     new NavComp('Projects','projects')

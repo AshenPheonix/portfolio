@@ -1,4 +1,4 @@
-class Footer{
+export default class Footer{
     constructor(element){
         this.footer=element
         this.copy=document.createElement('p')

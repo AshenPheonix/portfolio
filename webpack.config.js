@@ -14,16 +14,25 @@ module.exports = {
                         }
                     }
                 ]
+            },{
+                test:/\.less$/,
+                exclude:/node_modules/,
+                use:[
+                    {loader:'style-loader'},
+                    {loader:'css-loader'},
+                    {loader:'less-loader'}
+                ]
             }
         ]
     },
     entry: {
         project:'./js/projectInject.js',
-        blog:'./js/blogInject.js'
+        blog:'./js/blogInject.js',
+        index:'./js/index.js'
     },
     output:{
         filename:'[name].js',
-        path:path.resolve(__dirname,'views')
+        path:path.resolve(__dirname,'dist')
     },
-    mode:"development"
+    stats:{colors:true}
 }

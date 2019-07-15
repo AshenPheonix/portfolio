@@ -6,6 +6,7 @@
   "author": "Brandon Porter",
   "license": "MIT",
   "dependencies": {
+    "mini-css-extract-plugin": "^0.7.0",
     "riot": "^4.0.0-rc.17",
     "riot-observable": "^3.0.0"
   },
@@ -13,11 +14,16 @@
     "@riotjs/compiler": "^4.2.2",
     "@riotjs/hot-reload": "^4.0.0-rc.1",
     "@riotjs/webpack-loader": "^4.0.0",
+    "css-loader": "^3.0.0",
+    "less": "^3.9.0",
+    "less-loader": "^5.0.0",
+    "style-loader": "^0.23.1",
     "webpack": "^4.32.1",
     "webpack-cli": "^3.3.2",
-    "webpack-dev-server": "^3.4.1"
+    "webpack-livereload-plugin": "^2.2.0"
   },
   "scripts": {
+    "dev": "webpack --mode development --watch",
     "build": "webpack"
   }
 }

@@ -1,0 +1,16 @@
+.flex(@dir:row,@just:center,@wrap:nowrap,@AI:flex-start){
+    display: flex;
+    flex-direction: @dir;
+    justify-content: @just;
+    flex-wrap: @wrap;
+    align-items: @AI;
+}
+
+.stdBorder(@rad:.25rem){
+    border: 1px @textColor solid;
+    border-radius: @rad;
+}
+.emptyBorder(){
+    border:none;
+    border-radius: 0;
+}

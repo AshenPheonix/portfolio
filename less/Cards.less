@@ -1,0 +1,41 @@
+.cards{
+    .card{
+        margin-right: .25rem;
+        border:1px gray outset;
+        padding-bottom: .25rem;
+        padding-left:0px;
+        .cardBody{
+            display:none;
+            height: 0;
+            overflow: auto;
+        }
+        .cardHead{
+            padding:1rem;
+        }
+        &.show .cardBody{
+            animation: slideIn .5s;
+            height: 200px;
+            border-top: 2px gray groove;
+            display: block;
+            p{
+                padding:1rem;
+            }
+        }
+    }
+}
+
+@keyframes slideIn{
+    from{
+        height:0;
+    }to{
+        height: 200px;
+    }
+}
+
+@keyframes slideOut{
+    from{
+        height:200px;
+    }to{
+        height: 0;
+    }
+}

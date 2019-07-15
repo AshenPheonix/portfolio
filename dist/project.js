@@ -141,7 +141,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\r\n  'css': null,\r\n  'exports': {},\r\n\r\n  'template': function(template, expressionTypes, bindingTypes, getComponent) {\r\n    return template('<p>\\r\\n        Projects waiting for backend!\\r\\n    </p>', []);\r\n  },\r\n\r\n  'name': 'projects'\r\n});\n\n//# sourceURL=webpack:///./tags/projects.riot?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  'css': null,\n  'exports': {},\n\n  'template': function(template, expressionTypes, bindingTypes, getComponent) {\n    return template('<p>\\r\\n        Projects waiting for backend!\\r\\n    </p>', []);\n  },\n\n  'name': 'projects'\n});\n\n//# sourceURL=webpack:///./tags/projects.riot?");
 
 /***/ })
 

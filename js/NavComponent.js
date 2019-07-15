@@ -1,4 +1,4 @@
-class NavComponent{
+export class NavComponent{
     constructor(comp,location){
         this.comp=comp
         this.location=location
