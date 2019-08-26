@@ -8,9 +8,19 @@
             display:none;
             height: 0;
             overflow: auto;
+            @media @tablet{
+                display: block;
+                height: auto;
+                p{
+                    padding:1rem;
+                }
+            }
         }
         .cardHead{
             padding:1rem;
+            @media @tablet{
+                background-color: lightgray;
+            }
         }
         &.show .cardBody{
             animation: slideIn .5s;
@@ -20,8 +30,27 @@
             p{
                 padding:1rem;
             }
+            @media @tablet{
+                animation: none;
+                height: auto;
+                border-top:2px gray groove;
+            }
+        }
+        .cardBody{
+            @media @tablet{
+                border-top:2px gray groove;
+            }
+        }
+        @media @tablet{
+            margin: 1rem 0;
         }
     }
+    height: 421px;
+    @media @tablet {
+        margin: 0 1rem;
+        height: auto;
+    }
+    
 }
 
 @keyframes slideIn{

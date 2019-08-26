@@ -1,6 +1,8 @@
 export default class Card{
     constructor(el){
         this.root=el
+        if(this.root==null)
+            return;
         this.cards=Array.from(this.root.querySelectorAll('.card'))
         this.cards.forEach((el,i)=>{
             el.dataset.which=i
