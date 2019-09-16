@@ -1,3 +1,2 @@
 [build]
-publish="/"
 command ="yarn build"
