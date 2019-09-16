@@ -4,4 +4,4 @@ import blogs from '../tags/blog.riot'
 
 riot.register('blogs',blogs)
 
-riot.mount('blogs');
+riot.mount('blogs',{observer});

@@ -1,0 +1,65 @@
+<input_form>
+
+    <form onsubmit={sub}>
+        <div>
+            <div><label for="blog">Blog :</label><input type="radio" value="blog" name="type" id="blog" checked=true></div>
+            <div><label for="project">Project: </label><input type="radio" value="project" name="type" id="project"></div>
+            <hr>
+            <div><label for="title">Title: </label><input type="text" name="title" id="title"></div>
+            <div>
+                <label for="blog-post">Post:</label><br>
+                <section id="blog-post">
+
+                </section>
+            </div>
+        </div>
+        <button>Submit</button>
+    </form>
+    <script>
+        import quill from 'quill'
+        export default{
+            sub(e){
+                e.preventDefault()
+                let temp={
+                    type:this.$(':checked').value,
+                    title:this.$('#title').value,
+                    post:JSON.stringify(this.state.quill.getContents()),
+                    stub:this.state.quill.getText(0,150)
+                }
+
+                this.props.obs.trigger('post',temp)
+            },
+            onMounted(props,state){
+                state.quill=new quill('#blog-post',{
+                    theme:'snow'
+                })
+            },
+            onBeforeMount(props,state){
+                props.obs.on('accepted',({status})=>{
+                    if(status){
+                        this.$('#title').value=''
+                        this.state.quill.setContents({insert:'\n'})
+                    }
+                })
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Merriweather&display=swap');
+        *{
+            font-family: 'Merriweather',serif;
+        }
+        form{
+            margin:1rem;
+            padding:.5rem;
+            border:solid black 1px;
+        }
+        section,.ql-editor{
+            height:50vh;
+        }
+        .ql-editor{
+            overflow:auto;
+        }
+
+    </style>
+</input_form>

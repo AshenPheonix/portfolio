@@ -1,4 +1,5 @@
-const path = require('path')
+const path = require('path');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
     module:{
@@ -25,10 +26,14 @@ module.exports = {
             }
         ]
     },
+    plugins:[
+        new Dotenv()
+    ],
     entry: {
         project:'./js/projectInject.js',
         blog:'./js/blogInject.js',
-        index:'./js/index.js'
+        index:'./js/index.js',
+        manager:'./js/managerInject.js'
     },
     output:{
         filename:'[name].js',

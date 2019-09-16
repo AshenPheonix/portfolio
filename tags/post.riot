@@ -1,0 +1,24 @@
+<post>
+    <script>
+    import renderer from 'quilljs-renderer'
+    const doc=renderer.Document
+    renderer.loadFormat('html')
+    export default{
+        setInnerHTML(){
+            if(this.props.html!=undefined){
+                
+                const out=new doc(JSON.parse(this.props.html))
+                this.root.innerHTML=out.convertTo('html')
+            }
+        },
+        onMounted(){
+            this.setInnerHTML()
+        },
+        onUpdated(){
+            this.setInnerHTML()
+        },
+        onBeforeMount(props,state){
+        }
+    }
+    </script>
+</post>

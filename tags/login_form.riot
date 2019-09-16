@@ -1,0 +1,59 @@
+<login_form>
+    <form onsubmit={sub}>
+        <div class="formInput">
+            <label>
+                Username:
+            </label>
+            <input type="text" name="username" id="username">
+        </div>
+        <div class="formInput">
+            <label>
+                Password:
+            </label>
+            <input type="password" name="password" id="password">
+        </div>
+        <button disabled={state.freeze}>Submit</button>
+        <div id="data">
+            {state.info}
+        </div>
+    </form>
+    <script>
+        export default{
+            onBeforeMount(props,state){
+                this.state={
+                    info:"",
+                    freeze:false
+                }
+                props.obs.on('logged',attempt=>{
+                    if(this.state.try&&!attempt.status){
+                        this.update({
+                            freeze:false,
+                            info:"Incorrect information"
+                        })
+                    }
+                })
+            },
+            sub(e){
+                e.preventDefault()
+
+                if(!this.$$('input').every(e=>e.value.length>0)){
+                    this.update({info:'Please fill out all forms'})
+                }else{
+                    this.props.obs.trigger('login',{username:this.$('#username').value,password:this.$('#password').value})
+                    this.update({freeze:true,try:true})
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Merriweather&display=swap');
+        *{
+            font-family: 'Merriweather',serif;
+        }
+        form{
+            margin:1rem;
+            padding:.5rem;
+            border:solid black 1px;
+        }
+    </style>
+</login_form>

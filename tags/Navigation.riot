@@ -1,0 +1,18 @@
+<navigation>
+
+    <select if={props.posts.length>0}>
+        <option each={item in props.posts} value={item.id} selected={props.toggle}>{item.title}</option>
+    </select>
+    <p if={props.posts.length==0}>
+        No Posts
+    </p>
+    <script>
+        export default{
+            onMounted(props,state){
+                
+            },
+            onBeforeUpdate(props,state){
+            }
+        }
+    </script>
+</navigation> 

@@ -1,0 +1,47 @@
+<manager>
+
+    <login_form if={!state.status} obs={props.observer} />
+    <input_form if={state.status} obs={props.observer} />
+
+    <script>
+        import input_form from './Form.riot'
+        import login_form from './login_form.riot'
+        export default{
+            components:{
+                input_form,
+                login_form
+            },
+            onBeforeMount(props,state){
+                state.status=false
+                props.observer.on('logged',status=>{
+                    this.update({status:status.status})
+                })
+
+                const token=localStorage.getItem('token')
+                try{
+                    if(token)
+                        props.observer.trigger('login',{token:token})
+                }catch(err){
+                    
+                }
+            },
+            onMounted(props,state){
+                
+            },
+            onUpdated(props,state){
+            }
+
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Merriweather&display=swap');
+        *{
+            font-family: 'Merriweather',serif;
+        }
+        form{
+            margin:1rem;
+            padding:.5rem;
+            border:solid black 1px;
+        }
+    </style>
+</manager>

@@ -1,13 +1,33 @@
 <projects>
-    <p>
-        Projects waiting for backend!
-    </p>
+    <navigation posts={state.posts||[]}/>
+    <section>
+        <card each={post in state.posts} {...post} key={post.id} data-id={post.id} onclick={swap}/>
+    </section>
+
     <script>
+        import navigation from './Navigation.riot'
+        import card from './card.riot'
         export default{
-            
+            components:{
+                navigation,
+                card
+            },
+            onBeforeUpdate(props,state){
+            },
+            onBeforeMount(props,state){
+                props.observer.trigger('load','project')
+                props.observer.on('loaded',()=>{
+                    this.update({
+                        posts:props.observer.posts
+                    })
+                })
+            },
+            swap(e){
+                
+                this.update({
+                    posts:this.state.posts.map(i=>e.currentTarget.dataset.id==i.id?{...i,toggle:true}:{...i,toggle:false})
+                })
+            }
         }
     </script>
-    <style>
-
-    </style>
 </projects>

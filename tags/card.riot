@@ -1,0 +1,15 @@
+<card>
+    <h3>{props.title}</h3>
+    <p if={!props.toggle}>
+        {props.stub}
+    </p>
+    <post if={props.toggle} html={props.post}/>
+    <script>
+        import post from './post.riot'
+        export default{
+            components:{
+                post
+            }
+        }
+    </script>
+</card>
