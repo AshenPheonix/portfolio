@@ -6,7 +6,7 @@ function projectWatcher() {
 
     this.posts=[]
 
-    this.url=process.env.NODE_ENV==='development'?'http://localhost:2019':'tbd'
+    this.url=process.env.NODE_ENV==='development'?'http://localhost:2019':'https://ashenphoenix-portfolio-backend.herokuapp.com'
     this.con=axios
     this.con.defaults.baseURL=this.url
 
