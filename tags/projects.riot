@@ -1,5 +1,5 @@
 <projects>
-    <navigation posts={state.posts||[]}/>
+    <!--<navigation posts={state.posts||[]}/>-->    
     <section>
         <card each={post in state.posts} {...post} key={post.id} data-id={post.id} onclick={swap}/>
     </section>
