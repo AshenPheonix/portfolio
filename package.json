@@ -17,6 +17,7 @@
     "riot-observable": "^3.0.0"
   },
   "devDependencies": {
+    "@riotjs/cli": "^4.0.2",
     "@riotjs/compiler": "^4.2.2",
     "@riotjs/hot-reload": "^4.0.0-rc.1",
     "@riotjs/webpack-loader": "^4.0.0",
