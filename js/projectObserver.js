@@ -11,7 +11,7 @@ function projectWatcher() {
     this.con.defaults.baseURL=this.url
 
     this.on('load', async location=>{
-        if(location=='projects'){
+        if(location=='project'){
             try {
                 const data = await this.con.get('/projects/list')
                 this.posts=data.data
