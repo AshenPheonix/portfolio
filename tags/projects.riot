@@ -15,7 +15,7 @@
             onBeforeUpdate(props,state){
             },
             onBeforeMount(props,state){
-                this.state='loading'
+                this.state.posts='loading'
                 props.observer.trigger('load','project')
                 props.observer.on('loaded',()=>{
                     this.update({
