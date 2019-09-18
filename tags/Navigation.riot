@@ -1,9 +1,12 @@
 <navigation>
 
-    <select if={props.posts.length>0}>
+    <select if={Array.isArray(props.posts) && props.posts.length>0}>
         <option each={item in props.posts} value={item.id} selected={props.toggle}>{item.title}</option>
     </select>
-    <p if={props.posts.length==0}>
+    <p if={props.posts=='loading'}>
+        Loading, please wait.
+    </p>
+    <p if={Array.isArray(props.posts) && props.posts.length==0}>
         No Posts
     </p>
     <script>

@@ -1,6 +1,6 @@
 <blog>
-    <!--<navigation posts={state.posts||[]}/>-->
-    <section>
+    <navigation posts={state.posts||[]}/>
+    <section if={Array.isArray(state.posts)}>
         <card each={post in state.posts} {...post} key={post.id} data-id={post.id} onclick={swap}/>
     </section>
 
@@ -15,6 +15,9 @@
             onBeforeUpdate(props,state){
             },
             onBeforeMount(props,state){
+                this.state={
+                    posts:'loading'
+                }
                 props.observer.trigger('load','blog')
                 props.observer.on('loaded',()=>{
                     this.update({

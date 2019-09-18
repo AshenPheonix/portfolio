@@ -1,6 +1,6 @@
 <projects>
-    <!--<navigation posts={state.posts||[]}/>-->    
-    <section>
+    <navigation posts={state.posts||[]}/>
+    <section if={Array.isArray(state.posts)}>
         <card each={post in state.posts} {...post} key={post.id} data-id={post.id} onclick={swap}/>
     </section>
 

@@ -2,7 +2,7 @@
     <section class="card">
         <h3>{props.title}</h3>
         <p if={!props.toggle}>
-            {props.stub}
+            {props.stub} <span if={props.stub.length>=100}>... Click to Expand</span>
         </p>
         <post if={props.toggle} html={props.post}/>
     </section>
