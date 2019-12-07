@@ -6,7 +6,6 @@
     export default{
         setInnerHTML(){
             if(this.props.html!=undefined){
-                
                 const out=new doc(JSON.parse(this.props.html))
                 this.root.innerHTML=out.convertTo('html')
             }

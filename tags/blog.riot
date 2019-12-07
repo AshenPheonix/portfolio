@@ -1,32 +1,52 @@
 <blog>
-    <navigation posts={state.posts||[]}/>
-    <section if={Array.isArray(state.posts)}>
-        <card each={post in state.posts} {...post} key={post.id} data-id={post.id} onclick={swap}/>
-    </section>
+    <Router base={state.base}>
+        <navigation posts={state.posts||[]}/>
+        <Route path="/">
+            <section if={state && Array.isArray(state.posts)}>
+                <card each={post in state.posts} {...post} key={post.id} data-id={post.id} onclick={swap}/>
+            </section>
+        </Route>
+        <Route path="#/:id">
+            <GetPost />
+        </Route>
+    </Router>
 
     <script>
         import navigation from './Navigation.riot'
         import card from './card.riot'
+        import GetPost from './GetPost.riot'
+        import {Router,Route,router,setBase} from '@riotjs/route'
+        
         export default{
             components:{
                 navigation,
-                card
+                card,
+                Router,
+                Route,
+                GetPost
             },
+            state:{
+                base:`localhost:5500/blog.html#`,
+                posts:'Loading'
+            }
+            ,
             onBeforeUpdate(props,state){
             },
             onBeforeMount(props,state){
-                this.state={
-                    posts:'loading'
-                }
                 props.observer.trigger('load','blog')
                 props.observer.on('loaded',()=>{
+                    console.log(props.observer.posts)
                     this.update({
                         posts:props.observer.posts
                     })
                 })
+                router.on.value(path=>{console.log(`path ${path}`)})
+                
+            },
+            onMounted(){
+                // router.push('#')
             },
             swap(e){
-                
                 this.update({
                     posts:this.state.posts.map(i=>e.currentTarget.dataset.id==i.id?{...i,toggle:true}:{...i,toggle:false})
                 })

@@ -1,6 +1,7 @@
 <navigation>
 
-    <select if={Array.isArray(props.posts) && props.posts.length>0}>
+    <select if={Array.isArray(props.posts) && props.posts.length>0} onchange={changed}>
+        <option value="-1" selected={props.toggle}>Home</option>
         <option each={item in props.posts} value={item.id} selected={props.toggle}>{item.title}</option>
     </select>
     <p if={props.posts=='loading'}>
@@ -10,11 +11,23 @@
         No Posts
     </p>
     <script>
+    import {route,router} from '@riotjs/route'
         export default{
             onMounted(props,state){
                 
             },
             onBeforeUpdate(props,state){
+            },
+            changed(e){
+                try{
+                    console.log("attempting change")
+                    if(e.currentTarget.value=='-1'){
+                        router.push('')
+                    }else
+                        router.push(`${e.target.value}`)
+                }catch(err){
+                    console.error(err)
+                }
             }
         }
     </script>

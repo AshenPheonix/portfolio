@@ -17,6 +17,7 @@ function projectWatcher() {
                 this.posts=data.data
                 this.trigger('loaded')
             } catch (error) {
+                console.error('error loading projects');
                 console.error({...error});
             }
         }else{
@@ -25,7 +26,7 @@ function projectWatcher() {
                 this.posts=data.data
                 this.trigger('loaded')
             } catch (error) {
-                console.error({...error});
+                console.error(error);
             }
         }
     })

@@ -1,0 +1,20 @@
+<GetPost>
+    <p if={state.post==undefined}>
+        Loading, please wait
+    </p>
+    <post if={state.post!=undefined} html={state.post}/>
+    <script>
+        import post from './post.riot'
+        export default{
+            components:{
+                post
+            },
+            onBeforeMount(props,state){
+                console.log("loading")
+            },
+            onMount(props,state){
+                console.log('loading')
+            }
+        }
+    </script>
+</GetPost>
