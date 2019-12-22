@@ -5,10 +5,14 @@
     renderer.loadFormat('html')
     export default{
         setInnerHTML(){
-            if(this.props.html!=undefined){
-                
-                const out=new doc(JSON.parse(this.props.html))
-                this.root.innerHTML=out.convertTo('html')
+            try{
+                if(this.props.html!=undefined){
+                    const out=new doc(JSON.parse(this.props.html))
+                    this.root.innerHTML=out.convertTo('html')
+                }
+            }catch(err){
+                console.error('errored')
+                console.error(this.props.html)
             }
         },
         onMounted(){

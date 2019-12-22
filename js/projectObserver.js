@@ -17,6 +17,7 @@ function projectWatcher() {
                 this.posts=data.data
                 this.trigger('loaded')
             } catch (error) {
+                console.error('error loading projects');
                 console.error({...error});
             }
         }else{
@@ -25,7 +26,8 @@ function projectWatcher() {
                 this.posts=data.data
                 this.trigger('loaded')
             } catch (error) {
-                console.error({...error});
+                console.error('Error Loading Blogs')
+                console.error(error.stack);
             }
         }
     })
@@ -75,6 +77,10 @@ function projectWatcher() {
             this.trigger('accepted',{status:false})
         }
     })
+
+    this.getPost=e=>{
+        return this.posts.filter(post=>post.id==e)[0]
+    }
 }
 
 var OBS = new projectWatcher();
