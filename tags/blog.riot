@@ -1,21 +1,23 @@
 <blog>
     <Router base={state.base}>
         <navigation posts={state.posts||[]}/>
-        <Route path="/">
-            <section if={state && Array.isArray(state.posts)}>
-                <card each={post in state.posts} {...post} key={post.id} data-id={post.id} onclick={swap}/>
+        <Route path="#">
+            <card if={Array.isArray(state.posts)} each={post in state.posts} {...post} key={post.id} data-id={post.id} onclick={swap}/>
+            <section if={!Array.isArray(state.posts)}>
+                <p>Loading {JSON.stringify(state.posts)}</p>
             </section>
         </Route>
         <Route path="#/:id">
-            <GetPost />
+            <getpost which={route.params[0]}/>
         </Route>
     </Router>
 
     <script>
         import navigation from './Navigation.riot'
         import card from './card.riot'
-        import GetPost from './GetPost.riot'
+        import getpost from './GetPost.riot'
         import {Router,Route,router,setBase} from '@riotjs/route'
+        const loc = window.location
         
         export default{
             components:{
@@ -23,28 +25,21 @@
                 card,
                 Router,
                 Route,
-                GetPost
+                getpost
             },
             state:{
-                base:`localhost:5500/blog.html#`,
+                base:`${loc.protocol}//${loc.host}${loc.pathname}`,
                 posts:'Loading'
-            }
-            ,
-            onBeforeUpdate(props,state){
             },
-            onBeforeMount(props,state){
+            onMounted(props,state){
                 props.observer.trigger('load','blog')
                 props.observer.on('loaded',()=>{
-                    console.log(props.observer.posts)
                     this.update({
                         posts:props.observer.posts
                     })
                 })
                 router.on.value(path=>{console.log(`path ${path}`)})
-                
-            },
-            onMounted(){
-                // router.push('#')
+                if(!window.location.hash)router.push('#')
             },
             swap(e){
                 this.update({

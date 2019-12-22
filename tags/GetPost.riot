@@ -2,19 +2,47 @@
     <p if={state.post==undefined}>
         Loading, please wait
     </p>
-    <post if={state.post!=undefined} html={state.post}/>
+    <section if={state.post!=undefined}>
+        <h2>
+            {state.post.title}
+        </h2>
+        <post if={state.post!=undefined} html={state.post.post}/>
+    </section>
     <script>
         import post from './post.riot'
         export default{
             components:{
                 post
             },
-            onBeforeMount(props,state){
-                console.log("loading")
+            onMounted(props,state){
+                if(this.observer.posts.length>0)
+                    this.loadPost(props.which)
+                this.observer.on('loaded',()=>{
+                    this.loadPost(props.which)
+                })
             },
-            onMount(props,state){
-                console.log('loading')
+            onUpdated(props,state){
+                if(this.state.post!=undefined && this.state.post.id!=props.which)
+                    this.loadPost(props.which)
+            },
+            loadPost(which){
+                this.update({
+                    post:this.observer.getPost(which)
+                })
             }
         }
     </script>
+
+    <style>
+        h2{
+            background-color:#aa3315;
+            color:white;
+            padding:.5rem;
+            box-shadow:black 2px 2px 2px;
+            margin-left:0;
+        }
+        section{
+            padding:0;
+        }
+    </style>
 </GetPost>

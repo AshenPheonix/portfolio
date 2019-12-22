@@ -14,17 +14,24 @@
     import {route,router} from '@riotjs/route'
         export default{
             onMounted(props,state){
-                
             },
-            onBeforeUpdate(props,state){
+            onUpdated(props,state){
+                const loc = window.location
+                const select = this.$('select')
+                if(loc.hash){
+                    const str = loc.hash.replace('#/','')
+                    if(select.value!=str){
+                        select.value=str
+                    }
+                }
             },
             changed(e){
                 try{
-                    console.log("attempting change")
-                    if(e.currentTarget.value=='-1'){
-                        router.push('')
+                    
+                    if(e.target.value=='-1'){
+                        router.push('#')
                     }else
-                        router.push(`${e.target.value}`)
+                        router.push(`#/${e.target.value}`)
                 }catch(err){
                     console.error(err)
                 }
