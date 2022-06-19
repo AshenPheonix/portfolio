@@ -15,7 +15,8 @@
     "quill-delta": "^4.2.1",
     "quilljs-renderer": "^0.0.8",
     "riot": "^4.7.0",
-    "riot-observable": "^3.0.0"
+    "riot-observable": "^3.0.0",
+    "rollup": "^2.75.6"
   },
   "devDependencies": {
     "@riotjs/cli": "^4.0.3",
